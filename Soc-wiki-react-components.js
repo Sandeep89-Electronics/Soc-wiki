@@ -1,70 +1,5 @@
 // src/index.js
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Chip from '@mui/material/Chip';
-import Box from '@mui/material/Box';
-
-function SocDetail({ soc }) {
-  return (
-    <Card sx={{ height: '100%' }}>
-      <CardContent>
-        <Typography variant="h5" component="div" gutterBottom>
-          {soc.name}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-          {soc.manufacturer} • {soc.releaseYear}
-        </Typography>
-        
-        <Typography variant="body2" color="text.secondary" paragraph>
-          {soc.description}
-        </Typography>
-        
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <Typography variant="subtitle2">CPU</Typography>
-            <Typography variant="body2" paragraph>{soc.cpu}</Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="subtitle2">GPU</Typography>
-            <Typography variant="body2" paragraph>{soc.gpu}</Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="subtitle2">Process</Typography>
-            <Typography variant="body2" paragraph>{soc.process}</Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="subtitle2">Memory</Typography>
-            <Typography variant="body2" paragraph>{soc.memory}</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="subtitle2">Key Features</Typography>
-            <Box sx={{ mt: 1 }}>
-              {soc.features.map((feature, index) => (
-                <Chip 
-                  key={index} 
-                  label={feature} 
-                  size="small" 
-                  sx={{ mr: 1, mb: 1 }} 
-                />
-              ))}
-            </Box>
-          </Grid>
-          {soc.benchmarks && (
-            <Grid item xs={12}>
-              <Typography variant="subtitle2">Benchmarks</Typography>
-              <Typography variant="body2" paragraph>{soc.benchmarks}</Typography>
-            </Grid>
-          )}
-        </Grid>
-      </CardContent>
-    </Card>
-  );
-}
-
-export default SocDetail;'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
@@ -352,4 +287,69 @@ function SocTable({ socs, onSelectSoc, selectedSoc }) {
 export default SocTable;
 
 // src/components/SocDetail.js
-import React from
+import React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
+
+function SocDetail({ soc }) {
+  return (
+    <Card sx={{ height: '100%' }}>
+      <CardContent>
+        <Typography variant="h5" component="div" gutterBottom>
+          {soc.name}
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          {soc.manufacturer} • {soc.releaseYear}
+        </Typography>
+        
+        <Typography variant="body2" color="text.secondary" paragraph>
+          {soc.description}
+        </Typography>
+        
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Typography variant="subtitle2">CPU</Typography>
+            <Typography variant="body2" paragraph>{soc.cpu}</Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="subtitle2">GPU</Typography>
+            <Typography variant="body2" paragraph>{soc.gpu}</Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="subtitle2">Process</Typography>
+            <Typography variant="body2" paragraph>{soc.process}</Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="subtitle2">Memory</Typography>
+            <Typography variant="body2" paragraph>{soc.memory}</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="subtitle2">Key Features</Typography>
+            <Box sx={{ mt: 1 }}>
+              {soc.features.map((feature, index) => (
+                <Chip 
+                  key={index} 
+                  label={feature} 
+                  size="small" 
+                  sx={{ mr: 1, mb: 1 }} 
+                />
+              ))}
+            </Box>
+          </Grid>
+          {soc.benchmarks && (
+            <Grid item xs={12}>
+              <Typography variant="subtitle2">Benchmarks</Typography>
+              <Typography variant="body2" paragraph>{soc.benchmarks}</Typography>
+            </Grid>
+          )}
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default SocDetail;
